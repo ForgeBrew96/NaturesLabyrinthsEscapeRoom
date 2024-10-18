@@ -1,9 +1,13 @@
-App Title: Nature's Labrynth: Escape the Abyss
+App Title: Nature's Labyrinth: Escape the Abyss
 
 ERD and Wireframe: 
 
 https://drive.google.com/file/d/1dvem0TKaDwpDNZsb7mylv4O5SQC0ReCw/view?usp=sharing
 
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png) (Same frame for the second puzzle of the Room)
+![alt text](image-3.png)
 Project Overview:
 
     A full stack escape room with four data entities: Team, Player, Room and puzzles. I will have multiple front end links that utilize the backend to store and alter the data entries as the player's start, progress and finish player throughs.
