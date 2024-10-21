@@ -3,10 +3,14 @@ const cors = require('cors');
 const { connectDB } = require('./db');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const { Category, Product } = require('./models')
+const { Player, Team, Room, Puzzle } = require('./models')
 
-const categoryController = require('./controllers/categoryController');
-const productController = require('./controllers/productController');
+const playerCont = require('./controllers/playerCont');
+const teamCont = require('./controllers/teamCont');
+
+const puzzleCont = require('./controllers/puzzleCont');
+const roomCont = require('./controllers/roomCont');
+
 
 const PORT = process.env.PORT || 3001;
 
@@ -27,19 +31,31 @@ app.use(bodyParser.json());
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
 
-app.get('/', (req, res) => res.send('This is our landing page!'))
+app.get('/', (req, res) => res.send(`Employee Section of Nature's Labrynth: Escape the Abyss`))
 
-app.get('/categories', categoryController.getAllCategories)
-app.get('/categories/:id', categoryController.getCategoryById)
-app.post('/categories', categoryController.createCategory)
-app.put('/categories/:id', categoryController.updateCategory)
-app.delete('/categories/:id', categoryController.deleteCategory)
+app.get('/player', playerCont.getAllPlayers)
+app.get('/player/:id', playerCont.getPlayersById)
+app.post('/player', playerCont.createPlayer)
+app.put('/player/:id', playerCont.updatePlayer)
+app.delete('/player/:id', playerCont.deletePlayer)
 
-app.get('/products', productController.getAllProducts)
-app.get('/products/:id', productController.getProductById)
-app.post('/products', productController.createProduct)
-app.put('/products/:id', productController.updateProduct)
-app.delete('/products/:id', productController.deleteProduct)
+app.get('/team', teamCont.getAllTeams)
+app.get('/team/:id', teamCont.getTeamsById)
+app.post('/team', teamCont.createTeam)
+app.put('/team/:id', teamCont.updateTeam)
+app.delete('/team/:id', teamCont.deleteTeam)
+
+app.get('/puzzle', puzzleCont.getAllPuzzles)
+app.get('/puzzle/:id', puzzleCont.getPuzzlesById)
+app.post('/puzzle', puzzleCont.createPuzzle)
+app.put('/puzzle/:id', puzzleCont.updatePuzzle)
+app.delete('/puzzle/:id', puzzleCont.deletePuzzle)
+
+app.get('/room', roomCont.getAllRooms)
+app.get('/room/:id', roomCont.getRoomsById)
+app.post('/room', roomCont.createRoom)
+app.put('/room/:id', roomCont.updateRoom)
+app.delete('/room/:id', roomCont.deleteRoom)
 
 process.on('SIGINT', async () => {
     await mongoose.connection.close();

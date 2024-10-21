@@ -7,7 +7,8 @@ const RoomSchema = new Schema(
         name: { type: String, required: true },
         backGroundIMG: { type: String, required: true },
         themeDescription: { type: String, required: true },
-        connectPuzzles: [{type: Schema.Types.ObjectId, ref: 'Puzzle', required: true}]
+        connectedPuzzlesID: [{type: Schema.Types.ObjectId, ref: 'Puzzle', required: true}],
+        connectedPuzzlesName: [{type: String, ref: 'Puzzle', required: true}]
     },
     
     { timestamps: true },

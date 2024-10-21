@@ -8,11 +8,11 @@ const TeamSchema = new Schema(
         passWord: { type: String, required: true},
         teamName: { type: String, required: true },
         memberCount: { type: Number },
-        playerId: [{type: Schema.Types.ObjectId, ref: 'Player', required: true}],
-        playerNames: [{type: Schema.Types.ObjectId, ref: 'Player', required: true}],
+        playerId: [{type: Schema.Types.ObjectId, ref: 'Player'}],
+        playerNames: [{type: String, required: true}],
         hintsLeft: { type: Number, required: true, min: 0, max: 3 },
         inventory: [{ type: String }], //will use emojis to inventory items
-        roomsCompleted: [{type: Schema.Types.ObjectId, ref: 'Room', required: true}]
+        roomsCompleted: [{type: Schema.Types.ObjectId, ref: 'Room'}]
     },
 
     { timestamps: true },

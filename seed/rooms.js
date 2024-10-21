@@ -1,46 +1,29 @@
 const mongoose = require('mongoose');
 const { connectDB } = require('../db');
-const { Product, Category } = require('../models');
+const { Room, Puzzle } = require('../models');
 
 const main = async () => {
+   
 
-    //Counter top------------------------
-    const counterTop = await new Category({
-        name: "Counter Top",
-        description: "Counter top appliances are compact and versatile kitchen essentials designed to fit neatly on your counters, offering convenience and functionality without the need for major installations. Perfect for small tasks and quick meal preparation.",
-        installationNeeded: false,
-        averagePriceRange: "low",
-    });
-    await counterTop.save()
+    const puzzles = await Puzzle.find({ name: { $in: ["End of the Cave, Time to Leave!", "Remembering Your Route Out"] } });
+    const puzzleIds = puzzles.map(Puzzle => Puzzle._id);
+    const puzzleNames = puzzles.map(Puzzle => Puzzle.name);
 
-    //cooking------------------------
-    const cooking = await new Category({
-        name: "Cooking",
-        description: "Cooking appliances are the heart of any kitchen, providing the tools needed to prepare meals efficiently and deliciously. From ovens and stoves to microwaves and air fryers, these appliances help bring culinary creations to life.",
-        installationNeeded: true,
-        averagePriceRange: "medium"
-    });
-    await cooking.save()
-    
-    //storage------------------------
-    const storage = await new Category({
-        name: "Storage",
-        description: "Storage appliances are designed to preserve and organize your food and ingredients, keeping them fresh and easily accessible. Refrigerators, freezers, and wine coolers are key examples, ensuring food safety and longevity.",
-        installationNeeded: true,
-        averagePriceRange: "high"
-    });
-    await storage.save()
+    const mongoose = require('mongoose');
 
-    //cleaning------------------------
-    const cleaning = await new Category({
-        name: "Cleaning",
-        description: "Cleaning appliances make kitchen maintenance a breeze, handling everything from dishwashing to surface cleaning. These time-saving machines ensure your kitchen stays hygienic and spotless with minimal effort.",
-        installationNeeded: true,
-        averagePriceRange: "low"
-    });
-    await cleaning.save()
+    const gollumsCave = await new Room({
+        name: "Escaping Gollums Cave",
+        backGroundIMG: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibtd-AVo6zA07YnVvINYi-Y-NKud6E8CtkvgFRUFrDfF48YmH2Qv3ufyQQRc4Dw_iWLmKIVA6UdNCet86lWtwKV0r4tkZam6iJQLAv2BYK47KptGIfsnuQwFvEK4wRMdj636Bhhm6IPtZ4/s400/Just+inside+opening.jpg",
+        themeDescription: "Gollums Cave in Utah, also known as the cave of death is a tight and short passage that required daring cave divers to crawl and to swim (completely submerged) through into narrow tunnels to eventually find the end of the cave. Gollums Cave, previously being a miner site, has a shallow amount of oxygen and can leave divers dizzy and disoriented when trying to head back.Can you find any left over tools to help you prepare and escape Gollums Cave?",
+        connectedPuzzlesID: puzzleIds,
+        connectedPuzzlesName: puzzleNames
+    })    
+    await gollumsCave.save()
 
-    console.log("Created some categories!")
+console.log("Created the first Room")
+
+mongoose.connection.close();
+
 }
 
 const run = async () => {

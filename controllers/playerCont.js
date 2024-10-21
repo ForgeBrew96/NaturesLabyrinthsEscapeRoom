@@ -1,68 +1,68 @@
-const Category = require('../models/category');
+const Player = require('../models/player');
 
-const getAllCategories = async (req, res) => {
+const getAllPlayers = async (req, res) => {
     try {
-        const categories = await Category.find()
-        res.json(categories)
+        const Players = await Player.find()
+        res.json(Players)
     } catch (error) {
         return res.status(500).send(error.message);
     }
 }
 
-const getCategoryById = async (req, res) => {
+const getPlayersById = async (req, res) => {
     try {
         const { id } = req.params;
-        const category = await Category.findById(id)
-        if (category) {
-            return res.json(category);
+        const player = await Player.findById(id)
+        if (player) {
+            return res.json(player);
         }
-        return res.status(404).send('Category with the specified ID does not exists');
+        return res.status(404).send('Player with the specified ID does not exists');
     } catch (error) {
         return res.status(500).send(error.message);
     }
 }
 
-const createCategory = async (req, res) => {
+const createPlayer = async (req, res) => {
     try {
-        const category = await new Category(req.body)
-        await category.save()
+        const player = await new Player(req.body)
+        await player.save()
         return res.status(201).json({
-            category,
+            player,
         });
     } catch (error) {
         return res.status(500).json({ error: error.message })
     }
 }
-const updateCategory = async (req, res) => {
+const updatePlayer = async (req, res) => {
     try {
         let { id } = req.params;
-        let category = await Category.findByIdAndUpdate(id, req.body, { new: true })
-        if (category) {
-            return res.status(200).json(category)
+        let player = await Player.findByIdAndUpdate(id, req.body, { new: true })
+        if (player) {
+            return res.status(200).json(player)
         }
-        throw new Error("Category not found")
+        throw new Error("Player not found")
     } catch (error) {
         return res.status(500).send(error.message);
     }
 }
 
-const deleteCategory = async (req, res) => {
+const deletePlayer = async (req, res) => {
     try {
         const { id } = req.params;
-        const deleted = await Category.findByIdAndDelete(id)
+        const deleted = await Player.findByIdAndDelete(id)
         if (deleted) {
-            return res.status(200).send("Category deleted");
+            return res.status(200).send("Player deleted");
         }
-        throw new Error("Category not found");
+        throw new Error("Player not found");
     } catch (error) {
         return res.status(500).send(error.message);
     }
 }
 
 module.exports = {
-    getAllCategories,
-    getCategoryById,
-    updateCategory,
-    deleteCategory,
-    createCategory
+    getAllPlayers,
+    getPlayersById,
+    createPlayer,
+    updatePlayer,
+    deletePlayer
 }
