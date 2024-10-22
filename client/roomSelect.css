@@ -1,0 +1,49 @@
+/* CARD1 */
+.grid-card-title {
+display: grid;
+grid-template-rows: repeat(2, 50px);
+grid-template-columns: 4fr 2fr;
+margin-top: 2%
+}
+
+.title-item {
+    justify-self: center
+}
+
+.title-2 {
+justify-self: start;
+align-self: flex-end;
+width: 20%;
+height: 40%
+}
+
+/* CARD2 */
+.grid-card-themeSelect {
+    display: grid;
+    grid-template-rows: repeat(1, 200px);
+    grid-gap: 15em;
+    grid-template-columns: repeat(3, 200px);
+    justify-content: center;
+    margin-top: 12%
+}
+
+.theme-item {
+    justify-self: center;
+    align-self: center;
+    padding: 10%;
+    background-color: #a35858a4;
+    width: 30%;
+    height: 17%;
+}
+
+.theme-1 {
+  
+}
+
+.theme-2 {
+   
+}
+
+.theme-3 {
+   
+}
