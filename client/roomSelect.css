@@ -1,9 +1,130 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+:root {
+    --text-color: hsl(0, 0%, 35%);
+    --body-color: hsla(0, 17%, 92%, 0.623);
+    --container-color: hsl(0, 0%, 100%);
+    --hue: 210;
+    --saturation: 50%;
+    --lightness: 40%;
+    --_size: .9rem;
+    --_transitionSpeed: 600ms;
+    --bg: 240, 100%, 98%;
+    --accent: 210, 80%, 60%;
+    --body-font: "Poppins", sans-serif;
+}
+
+body {
+    background: url("https://designshack.net/wp-content/uploads/best-subtle-black-white-background-textures-368x246.jpg");
+    overflow: hidden;
+    position: relative;
+    font-family: var(--body-font);
+}
+
+.rain {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100vh;
+    background: whitesmoke;
+    animation: fall .5s linear infinite;
+    z-index: -3;
+    box-shadow:
+        .05em .1em .9em black,
+        0 0 0 -.1em black,
+        0 0 0 -.2em rgb(235, 228, 228);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.rain:nth-child(2) {
+    left: 55%;
+    animation-duration: 0.75s;
+}
+
+.rain:nth-child(3) {
+    left: 45%;
+    animation-duration: 1s;
+}
+
+.rain:nth-child(4) {
+    left: 52%;
+    animation-duration: 1.25s;
+}
+
+.rain:nth-child(5) {
+    left: 63%;
+    animation-duration: 1.25s;
+}
+
+.rain:nth-child(6) {
+    left: 20%;
+    animation-duration: 1s;
+}
+
+.rain:nth-child(7) {
+    left: 15%;
+    animation-duration: 0.75s;
+}
+
+.rain:nth-child(8) {
+    left: 22%;
+    animation-duration: 1.25s;
+}
+
+.rain:nth-child(9) {
+    left: 70%;
+    animation-duration: 1s;
+}
+
+.rain:nth-child(10) {
+    left: 80%;
+    animation-duration: 0.75s;
+}
+
+.rain:nth-child(11) {
+    left: 90%;
+    animation-duration: 1s;
+}
+
+.rain:nth-child(12) {
+    left: 95%;
+    animation-duration: 1.25s;
+}
+
+.rain:nth-child(13) {
+    left: 100%;
+    animation-duration: 0.75s;
+}
+
+.rain:nth-child(14) {
+    left: 1%;
+    animation-duration: 1s;
+}
+
 /* CARD1 */
 .grid-card-title {
-display: grid;
-grid-template-rows: repeat(2, 50px);
-grid-template-columns: 4fr 2fr;
-margin-top: 2%
+    display: grid;
+    background-color: rgba(247, 237, 237, 0.822);
+    border-radius: 20px;
+    padding: .2px;
+    box-shadow:
+        .1em .8em 2em black,
+        0 0 0 .9em rgb(85, 24, 24),
+        .2em .3em 2em .9em rgb(153, 64, 5);
+    grid-template-rows: repeat(2, 50px);
+    grid-template-columns: 4fr 2fr;
+    margin-top: 2%
 }
 
 .title-item {
@@ -11,39 +132,49 @@ margin-top: 2%
 }
 
 .title-2 {
-justify-self: start;
-align-self: flex-end;
-width: 20%;
-height: 40%
+    justify-self: start;
+    align-self: flex-end;
+    margin-bottom: -2%;
+    width: 20%;
+    height: 50%
 }
 
 /* CARD2 */
 .grid-card-themeSelect {
     display: grid;
     grid-template-rows: repeat(1, 200px);
-    grid-gap: 15em;
+    grid-gap: 2em;
     grid-template-columns: repeat(3, 200px);
-    justify-content: center;
-    margin-top: 12%
+    margin-top: 12%;
+    justify-content: space-evenly
 }
 
 .theme-item {
-    justify-self: center;
-    align-self: center;
+
     padding: 10%;
     background-color: #a35858a4;
-    width: 30%;
+    width: 70%;
     height: 17%;
 }
 
-.theme-1 {
-  
+a {
+    cursor: pointer;
+    font-size: var(--_size);
+    display: flex;
+    background-color: hsl(var(--accent));
+    color: hsl(var(--bg));
+    padding: .5em .5em .5em;
+    border-radius: .7em;
+    box-shadow:
+        .5em .1em .9em hsl(var(--accent) / .7),
+        0 0 0 .1em hsl(var(--bg)),
+        0 0 0 .2em hsl(var(--accent));
+    transition:
+        box-shadow var(--_transitionSpeed) cubic-bezier(0.66, -0.2, 0.27, 1.15),
+        background-color var(--_transitionSpeed) cubic-bezier(0.66, -0.2, 0.27, 1.15);
 }
 
-.theme-2 {
-   
-}
 
-.theme-3 {
-   
+a:where(:active, :hover) {
+    background-color: hsl(var(--accent2));
 }

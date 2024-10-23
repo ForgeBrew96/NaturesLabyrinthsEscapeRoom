@@ -1,46 +1,255 @@
-.grid-header {
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+:root {
+    --text-color: hsl(0, 0%, 35%);
+    --body-color: hsla(0, 17%, 92%, 0.623);
+    --container-color: hsl(0, 0%, 100%);
+    --hue: 210;
+    --saturation: 50%;
+    --lightness: 40%;
+    --_size: .9rem;
+    --_transitionSpeed: 600ms;
+    --bg: 240, 100%, 98%;
+    --accent: 210, 80%, 60%;
+    --body-font: "Poppins", sans-serif;
+    --div-font-size: 1.25rem;
+    --small-font-size: .813rem;
+}
+
+body {
+    background: hsl(var(--body-color));
+    overflow: hidden;
+    position: relative;
+    font-family: var(--body-font);
+}
+
+.rain {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100vh;
+    background: whitesmoke;
+    animation: fall .5s linear infinite;
+    z-index: -3;
+    box-shadow:
+    .05em .1em .9em black,
+    0 0 0 -.1em black,
+    0 0 0 -.2em rgb(235, 228, 228);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.rain:nth-child(2) {
+    left: 55%;
+    animation-duration: 0.75s;
+}
+.rain:nth-child(3) {
+    left: 45%;
+    animation-duration: 1s;
+}
+.rain:nth-child(4) {
+    left: 52%;
+    animation-duration: 1.25s;
+}
+.rain:nth-child(5) {
+    left: 63%;
+    animation-duration: 1.25s;
+}
+.rain:nth-child(6) {
+    left: 20%;
+    animation-duration: 1s;
+}
+.rain:nth-child(7) {
+    left: 15%;
+    animation-duration: 0.75s;
+}
+.rain:nth-child(8) {
+    left: 22%;
+    animation-duration: 1.25s;
+}
+.rain:nth-child(9) {
+    left: 70%;
+    animation-duration: 1s;
+}
+.rain:nth-child(10) {
+    left: 80%;
+    animation-duration: 0.75s;
+}
+.rain:nth-child(11) {
+    left: 90%;
+    animation-duration: 1s;
+}
+.rain:nth-child(12) {
+    left: 95%;
+    animation-duration: 1.25s;
+}
+.rain:nth-child(13) {
+    left: 100%;
+    animation-duration: 0.75s;
+}
+.rain:nth-child(14) {
+    left: 1%;
+    animation-duration: 1s;
+}
+
+/*=============== GRID STUFF ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    font-family: var(--body-font);
+    background-color: var(--body-color);
+    color: var(--text-color);
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+button {
+    cursor: pointer;
+    font-size: var(--_size);
+    display: flex;
+    background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+    color: hsl(var(--bg));
+    padding: .1em 1.4em;
+    border-radius: .7em;
+    box-shadow:
+        .05em .1em .9em hsl(var(--accent) / .7),
+        0 0 0 -.1em hsl(var(--bg)),
+        0 0 0 -.2em hsl(var(--accent));
+    transition:
+        box-shadow var(--_transitionSpeed) cubic-bezier(0.66, -0.2, 0.27, 1.15),
+        background-color var(--_transitionSpeed) cubic-bezier(0.66, -0.2, 0.27, 1.15);
+}
+
+button:where(:active, :hover) {
+    background-color: hsl(var(--accent));
+}
+
+a {
+    cursor: pointer;
+    font-size: var(--_size);
+    display: flex;
+    background-color: hsl(var(--accent));
+    color: hsl(var(--bg));
+    padding: .1em 1.4em;
+    border-radius: .7em;
+    box-shadow:
+        .05em .1em .9em hsl(var(--accent) / .7),
+        0 0 0 -.1em hsl(var(--bg)),
+        0 0 0 -.2em hsl(var(--accent));
+    transition:
+        box-shadow var(--_transitionSpeed) cubic-bezier(0.66, -0.2, 0.27, 1.15),
+        background-color var(--_transitionSpeed) cubic-bezier(0.66, -0.2, 0.27, 1.15);
+}
+
+a:where(:active, :hover) {
+    background-color: hsl(var(--accent) / .8);
+    box-shadow:
+        0 0 0 hsl(var(--accent) / .7),
+        0 0 0 -.1em hsl(var(--bg)),
+        0 0 0 -.2em hsl(var(--accent));
+}
+
+a:focus {
+    outline: none;
+}
+
+a:focus-visible {
+    box-shadow:
+        0 0 0 hsl(var(--accent) / .3),
+        0 0 0 .2em hsl(var(--bg)),
+        0 0 0 .4em hsl(var(--accent) /.5);
+}
+
+.master-container {
     display: grid;
-    grid-template-rows: repeat(1, 120px);
+    grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 1.5fr 1fr;
+    grid-template-columns: 1fr 4fr 4fr 4fr 1fr;
+    gap: 3em
+}
+
+.grid-header {
+    grid-area: 1 / 2 / 2 / 6;
+    display: grid;
+    grid-template-rows: repeat(1, 100px);
     grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
-    background-color:aqua;
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    height: 80%;
+    margin-top: 20px;
+    gap: 2rem;
+    border-radius: .8em;
+    box-shadow:
+    .1em .8em 2em black,
+    0 0 0 .9em rgb(139, 100, 47),
+    .2em .3em 2em .9em rgb(153, 64, 5);
 }
 
 .item-header {
-   align-self: center;
-   justify-self: center;
+    align-self: center;
+    justify-self: center;
 }
 
 .grid-players {
+    grid-area: 2 / 1 / 6 / 2;
     display: grid;
-    position: absolute;
     grid-template-rows: repeat(4, 130px);
     grid-template-columns: 50px;
-    background-color:rgb(125, 196, 196);
-    width: 10%;
-    margin-top: 7%;
+    width: 100%;
+    height: 84%;
+    row-gap: 3.5rem;
+    border-radius: .2%;
+    margin-left: 14%;
+    box-shadow:
+    .1em .8em 2em black,
+    0 0 0 .9em rgb(139, 100, 47),
+    .2em .3em 2em .9em rgb(153, 64, 5);
 }
 
 .grid-main {
+    grid-area: 2 / 2 / 7 / 6;
     display: grid;
     grid-template-rows: repeat(5, 130px);
     grid-template-columns: repeat(1, 1fr);
-    background-color:rgb(7, 140, 163);
-    z-index: 2;
-    margin-left: 10%;
-    width: 80%;
-    height: 750px;
-    border-radius:30%;
+    background-color: rgb(179, 187, 189);
+    width: 90%;
+    height: 70%;
+    margin-left: 1%;
+    border-radius: 10%;
+    box-shadow:
+    .1em .8em 2em black,
+    0 0 0 .9em rgb(139, 100, 47),
+    .2em .3em 2em .9em rgb(153, 64, 5);
 }
 
 .grid-footer {
+    grid-area: 5 / 3 / 6 / 5;
     display: grid;
-    position: absolute;
     grid-template-rows: repeat(1, 60px);
     grid-template-columns: repeat(1, 1fr);
-    background-color:rgb(0, 132, 255);
-    width: 50%;
-    margin-left: 24%;
-    margin-top: -4%
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 40%;
+    margin-left: -24%;
+    margin-top: -4%;
+    border-radius: .7em;
+    box-shadow:
+    .1em .8em 2em black,
+    0 0 0 .9em rgb(139, 100, 47),
+    .2em .3em 2em .9em rgb(153, 64, 5);
 }
