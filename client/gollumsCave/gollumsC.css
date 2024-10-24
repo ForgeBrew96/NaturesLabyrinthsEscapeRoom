@@ -34,15 +34,16 @@ body {
     animation: fall .5s linear infinite;
     z-index: -3;
     box-shadow:
-    .05em .1em .9em black,
-    0 0 0 -.1em black,
-    0 0 0 -.2em rgb(235, 228, 228);
+        .05em .1em .9em black,
+        0 0 0 -.1em black,
+        0 0 0 -.2em rgb(235, 228, 228);
 }
 
 @keyframes fall {
     0% {
         transform: translateY(-100%);
     }
+
     100% {
         transform: translateY(100%);
     }
@@ -52,50 +53,62 @@ body {
     left: 55%;
     animation-duration: 0.75s;
 }
+
 .rain:nth-child(3) {
     left: 45%;
     animation-duration: 1s;
 }
+
 .rain:nth-child(4) {
     left: 52%;
     animation-duration: 1.25s;
 }
+
 .rain:nth-child(5) {
     left: 63%;
     animation-duration: 1.25s;
 }
+
 .rain:nth-child(6) {
     left: 20%;
     animation-duration: 1s;
 }
+
 .rain:nth-child(7) {
     left: 15%;
     animation-duration: 0.75s;
 }
+
 .rain:nth-child(8) {
     left: 22%;
     animation-duration: 1.25s;
 }
+
 .rain:nth-child(9) {
     left: 70%;
     animation-duration: 1s;
 }
+
 .rain:nth-child(10) {
     left: 80%;
     animation-duration: 0.75s;
 }
+
 .rain:nth-child(11) {
     left: 90%;
     animation-duration: 1s;
 }
+
 .rain:nth-child(12) {
     left: 95%;
     animation-duration: 1.25s;
 }
+
 .rain:nth-child(13) {
     left: 100%;
     animation-duration: 0.75s;
 }
+
 .rain:nth-child(14) {
     left: 1%;
     animation-duration: 1s;
@@ -106,19 +119,19 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-  }
-  
-  body {
+}
+
+body {
     font-family: var(--body-font);
     background-color: var(--body-color);
     color: var(--text-color);
-  }
-  
-  img {
+}
+
+img {
     display: block;
-    max-width: 100%;
+    max-width: 250%;
     height: auto;
-  }
+}
 
 button {
     cursor: pointer;
@@ -180,9 +193,9 @@ a:where(:active, :hover) {
     gap: 2rem;
     border-radius: .8em;
     box-shadow:
-    .1em .8em 2em black,
-    0 0 0 .9em rgb(139, 100, 47),
-    .2em .3em 2em .9em rgb(153, 64, 5);
+        .1em .8em 2em black,
+        0 0 0 .9em rgb(139, 100, 47),
+        .2em .3em 2em .9em rgb(153, 64, 5);
 }
 
 .item-header {
@@ -195,15 +208,15 @@ a:where(:active, :hover) {
     display: grid;
     grid-template-rows: repeat(4, 130px);
     grid-template-columns: 50px;
-    width: 100%;
-    height: 84%;
+    width: 120%;
+    height: 85%;
     row-gap: 3.5rem;
     border-radius: .2%;
     margin-left: 14%;
     box-shadow:
-    .1em .8em 2em black,
-    0 0 0 .9em rgb(139, 100, 47),
-    .2em .3em 2em .9em rgb(153, 64, 5);
+        .1em .8em 2em black,
+        0 0 0 .9em rgb(139, 100, 47),
+        .2em .3em 2em .9em rgb(153, 64, 5);
 }
 
 .grid-main {
@@ -214,12 +227,89 @@ a:where(:active, :hover) {
     background-color: rgb(179, 187, 189);
     width: 90%;
     height: 70%;
-    margin-left: 1%;
+    margin-left: 2%;
     border-radius: 10%;
     box-shadow:
-    .1em .8em 2em black,
-    0 0 0 .9em rgb(139, 100, 47),
-    .2em .3em 2em .9em rgb(153, 64, 5);
+        .1em .8em 2em black,
+        0 0 0 .9em rgb(139, 100, 47),
+        .2em .3em 2em .9em rgb(153, 64, 5);
+}
+
+.game-items-overlay {
+    z-index: 1;
+}
+
+.item-button {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.shovel {
+    position: absolute;
+    top: 500px;
+    right: 1100px;
+    width: 70px;
+    height: 70px;
+}
+
+.keybox {
+    position: absolute;
+    top: 450px;
+    left: 240px;
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+}
+
+.oxygenMasks {
+    position: absolute;
+    top: 480px;
+    right: 700px;
+    width: 100px;
+    height: 100px;
+    border-radius: 30%;
+}
+
+.journal {
+    position: absolute;
+    top: 700px;
+    right: 400px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30%;
+}
+
+.rockPile {
+    position: absolute;
+    top: 650px;
+    right: 1500px;
+    width: 200px;
+    height: 200px; 
+    border-radius: 30%;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: orange;
+    }
 }
 
 .grid-footer {
@@ -234,7 +324,23 @@ a:where(:active, :hover) {
     margin-top: -4%;
     border-radius: .7em;
     box-shadow:
-    .1em .8em 2em black,
-    0 0 0 .9em rgb(139, 100, 47),
-    .2em .3em 2em .9em rgb(153, 64, 5);
+        .1em .8em 2em black,
+        0 0 0 .9em rgb(139, 100, 47),
+        .2em .3em 2em .9em rgb(153, 64, 5);
+}
+
+.gameContentText {
+    overflow: hidden;
+    border-right: 0.15em solid orange;
+    white-space: nowrap;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    font-family: monospace;
+    font-size: 103%
+}
+
+#mainScreenImage {
+    margin: auto;
+    width: 100%;
+    height: 560%;
+    border-radius: 10%;
 }

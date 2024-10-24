@@ -9,9 +9,9 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         userName: username,
         passWord: password,
         teamName: teamName,
-        memberCount: 1, // default value
+        memberCount: 1,
         playerNames: [],
-        hintsLeft: 3, // default initial value
+        hintsLeft: 3,
         inventory: [],
         roomsCompleted: []
     };

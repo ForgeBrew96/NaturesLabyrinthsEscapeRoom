@@ -27,65 +27,90 @@
  
     <div class="master-container">
         <div class="grid-header">
-            <div class="item-header header-1">Inventory</div>
+            <div class="item-header header-1 inventory">Inventory</div>
             <div class="item-header header-2">Gollums Cave: End of the Cave, Time to Leave!</div>
             <div class="item-header header-3">
                 <a href="../logIn.html">Save Game and Exit</a>
             </div>
             <div class="item-header header-4">
-                <button>Need a hint?</button>
+                <button class ="hintButton">Need a hint?</button>
             </div>
             <div class="item-header header-5">
-                <h2>Hint Count: 3</h2>
+                <h2 class="hintCount">Hint Count: 3</h2>
             </div>
         </div>
 
         <div class="grid-players">
 
             <div class="item-player player-1">
-                <img src="">
                 <div class="playerInfo">
+                    <img src="" class="playerimg">
                     <h4 class="playerName">Player Name</h4>
-                    <h4 class="Oxygen"> 100% </h4>
+                    <h4 class="Oxygen"> Oxygen:100% </h4>
                 </div>
             </div>
 
             <div class="item-player player-2">
-                <img src="">
                 <div class="playerInfo">
+                    <img src="" class="playerimg">
                     <h4 class="playerName">Player Name</h4>
-                    <h4 class="Oxygen"> 100% </h4>
+                    <h4 class="Oxygen"> Oxygen:100% </h4>
                 </div>
             </div>
 
             <div class="item-player player-3">
-                <img src="">
                 <div class="playerInfo">
+                    <img src="" class="playerimg">
                     <h4 class="playerName">Player Name</h4>
-                    <h4 class="Oxygen"> 100% </h4>
+                    <h4 class="Oxygen"> Oxygen:100% </h4>
                 </div>
             </div>
 
             <div class="item-player player-4">
-                <img src="">
                 <div class="playerInfo">
+                    <img src="" class="playerimg">
+                    <h4 class="playerName">Player Name</h4>
+                    <h4 class="Oxygen"> Oxygen:100% </h4>
+                </div>
+            </div>
+<!-- 
+            <div class="item-player player-5">
+                <div class="playerInfo">
+                    <img src="" class="playerimg">
                     <h4 class="playerName">Player Name</h4>
                     <h4 class="Oxygen"> 100% </h4>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
         <div class="grid-main">
+<img id="mainScreenImage" src="https://preview.redd.it/ow7y5qzqvdq91.jpg?width=640&crop=smart&auto=webp&s=424cf3752f668c5d8ae2cb72c4da324d26a0f05a">
+<div class="game-items-overlay">
 
+    <img src="https://img.freepik.com/premium-photo/shovel-is-puddle-water-with-handle_1282598-21444.jpg" alt="Item 1" class="item-button shovel" data-item="🥄">
+
+    <img src="https://shopironlock.com/wp-content/uploads/2024/04/Iron-Lock%C2%AE-%E2%80%93-XXL-Key-Lock-Box-for-Keys-4-Digit-Combination-Extra-Large-Wall-Mounted-Lockbox-600x603.png" alt="Item 2" class="item-button keybox" data-item="🗝️">
+
+    <img src="https://libertysafenorcal.com/cdn/shop/products/VaultekMxi-Bluetooth-Fingerprint_2_2048x.png?v=1623386406" alt="Item 3" class="item-button oxygenMasks" data-item="🫁">
+
+    <img src="https://m.media-amazon.com/images/I/818udnUwilL.jpg" alt="Item 4" class="item-button journal" data-item="📓">
+
+    <img src="https://img.freepik.com/premium-psd/coal-pile-isolated-transparent-background_1268218-23543.jpg" alt="Item 5" class="item-button rockPile" data-item="🪨">
+</div>
         </div>
 
         <div class="grid-footer">
-            <h4 class="gameContentText">game text</h4>
+            <h4 class="gameContentText">Alice - "Are you guy's feeling light headed as well? This has been fun, but we should really find a way out of here..."</h4>
         </div>
     </div>
+    <audio id="wetCavesounds" loop>
+        <source src="/SoundFolder/inside-a-cave-effect-240264.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 
 <script src="./gollumsC.js"></script>
 
 </html>
+

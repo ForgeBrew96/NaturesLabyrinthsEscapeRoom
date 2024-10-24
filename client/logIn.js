@@ -80,3 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     usernameInput.addEventListener('input', checkInputs);
     passwordInput.addEventListener('input', checkInputs);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const birdWater = document.getElementById('birdWater');
+    birdWater.play();
+});

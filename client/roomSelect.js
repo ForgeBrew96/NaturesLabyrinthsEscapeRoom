@@ -46,14 +46,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const rainSound = document.getElementById('rainSound');
-    const thunderSound = document.getElementById('thunderSound');
-
-    // Play rain sound on loop
-    rainSound.play();
-
-    // Play thunder sound at intervals
-    setInterval(() => {
-        thunderSound.play();
-    }, 15000); // Adjust interval as needed (15 seconds in this example)
-})
+    const rainThunderSound = document.getElementById('rainThunderSound');
+    rainThunderSound.play();
+});
