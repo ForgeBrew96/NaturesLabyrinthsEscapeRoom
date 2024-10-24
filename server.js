@@ -3,36 +3,40 @@ const cors = require('cors');
 const { connectDB } = require('./db');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const { Player, Team, Room, Puzzle } = require('./models')
-
+const { Player, Team, Room, Puzzle } = require('./models');
 const playerCont = require('./controllers/playerCont');
 const teamCont = require('./controllers/teamCont');
-
 const puzzleCont = require('./controllers/puzzleCont');
 const roomCont = require('./controllers/roomCont');
-
+const mongoose = require('mongoose');
+const path = require('path');
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
 
 (async () => {
     try {
         await connectDB();
+        console.log('Database connected successfully');
     } catch (error) {
-        console.error('Failed to connect to the database');
+        console.error('Failed to connect to the database', error);
         process.exit(1); // Exit process if the DB connection fails
     }
 })();
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
 
-app.get('/', (req, res) => res.send(`Employee Section of Nature's Labrynth: Escape the Abyss`))
-
+app.get('/', (req, res) => {
+    res.send(`Employee Section of Nature's Labrynth: Escape the Abyss`)
+    // res.sendFile(path.join(__dirname, 'client', 'logIn.html'))
+})
 app.get('/player', playerCont.getAllPlayers)
 app.get('/player/:id', playerCont.getPlayersById)
 app.post('/player', playerCont.createPlayer)
@@ -56,6 +60,7 @@ app.get('/room/:id', roomCont.getRoomsById)
 app.post('/room', roomCont.createRoom)
 app.put('/room/:id', roomCont.updateRoom)
 app.delete('/room/:id', roomCont.deleteRoom)
+
 
 process.on('SIGINT', async () => {
     await mongoose.connection.close();

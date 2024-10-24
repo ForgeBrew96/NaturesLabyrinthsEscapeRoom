@@ -142,7 +142,7 @@ a {
     cursor: pointer;
     font-size: var(--_size);
     display: flex;
-    background-color: hsl(var(--accent));
+    background-color: hsl(var(--hue), var(--saturation), var(--lightness));
     color: hsl(var(--bg));
     padding: .1em 1.4em;
     border-radius: .7em;
@@ -153,8 +153,10 @@ a {
     transition:
         box-shadow var(--_transitionSpeed) cubic-bezier(0.66, -0.2, 0.27, 1.15),
         background-color var(--_transitionSpeed) cubic-bezier(0.66, -0.2, 0.27, 1.15);
+        text-align:center;
+        text-decoration: none 
 }
 
 a:where(:active, :hover) {
-    background-color: hsl(var(--accent2));
+    background-color: hsl(var(--accent));
 }

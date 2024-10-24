@@ -1,30 +1,59 @@
-const getEscapeRoomData = async () => {
-    try {
-        const responseplayer = await fetch('http://localhost:3001/player');
-        const players = await responseplayer.json();
- 
-        const responseTeams = await fetch('http://localhost:3001/team');
-        const teams = await responseTeams.json();
-    
-        const responsePuzzles = await fetch('http://localhost:3001/puzzle');
-        const puzzles = await responsePuzzles.json();
+document.addEventListener('DOMContentLoaded', async () => {
+    const gollumsCaveLink = document.getElementById('gollumsCaveLink');
+    const tooltip = document.getElementById('tooltip');
 
-        const responseRooms = await fetch('http://localhost:3001/room');
-        const rooms = await responseRooms.json();
-
-        console.log({ players, teams, puzzles, rooms });
-
-        return { players, teams, puzzles, rooms };
-
-    } catch (error) {
-        console.error('Error fetching escape room information:', error);
+    const fetchRoomData = async () => {
+        try {
+            const response = await fetch('http://localhost:3001/room'); 
+            if (!response.ok) throw new Error('Network response was not ok');
+            const rooms = await response.json();
+            console.log('Rooms data:', rooms);
+            return rooms.find(room => room.name === "Escaping Gollums Cave");
+        } catch (error) {
+            console.error('Error fetching room data:', error);
+        }
     };
-};
 
-getEscapeRoomData().then(data => {
-    const { players, teams, puzzles, rooms } = data;
-    console.log(players) 
-    console.log(teams) 
-    console.log(puzzles) 
-    console.log(rooms) 
+    const showTooltip = (event, roomData) => {
+        if (!roomData) {
+            console.error('No room data found');
+            return;
+        }
+        tooltip.innerHTML = `
+            <strong>Room Name:</strong> ${roomData.name}<br>
+            <strong>Description:</strong> ${roomData.themeDescription}<br>
+            <img src="${roomData.backGroundIMG}" alt="${roomData.name}" style="max-width: 100px; max-height: 100px;">
+        `;
+        tooltip.style.left = `${event.pageX + 10}px`;
+        tooltip.style.top = `${event.pageY + 10}px`;
+        tooltip.style.display = 'block';
+    };
+
+    gollumsCaveLink.addEventListener('mouseover', async (event) => {
+        const roomData = await fetchRoomData();
+        console.log('Room data for tooltip:', roomData); 
+        showTooltip(event, roomData);
+    });
+
+    gollumsCaveLink.addEventListener('mousemove', (event) => {
+        tooltip.style.left = `${event.pageX + 10}px`;
+        tooltip.style.top = `${event.pageY + 10}px`;
+    });
+
+    gollumsCaveLink.addEventListener('mouseout', () => {
+        tooltip.style.display = 'none';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const rainSound = document.getElementById('rainSound');
+    const thunderSound = document.getElementById('thunderSound');
+
+    // Play rain sound on loop
+    rainSound.play();
+
+    // Play thunder sound at intervals
+    setInterval(() => {
+        thunderSound.play();
+    }, 15000); // Adjust interval as needed (15 seconds in this example)
 })
