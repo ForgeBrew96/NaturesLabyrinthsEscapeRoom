@@ -57,29 +57,29 @@ const passwordInput = document.querySelector('.logInPassword');
 const enterAdventureLink = document.getElementById('enterAdventureLink');
 const createAccountButton = document.querySelector('.createNewAccount');
 
-const validateInputs = (username, password, teams) => {
-    const isValid = teams.some(team => team.userName === username && team.passWord === password);
-    console.log(`Validation result for ${username}: ${isValid}`);
-    return isValid;
-};
+// const validateInputs = (username, password, teams) => {
+//     const isValid = teams.some(team => team.userName === username && team.passWord === password);
+//     console.log(`Validation result for ${username}: ${isValid}`);
+//     return isValid;
+// };
 
-async function checkInputs() {
-    const teams = await fetchTeams();
-    const username = usernameInput.value;
-    const password = passwordInput.value;
+// async function checkInputs() {
+//     const teams = await fetchTeams();
+//     const username = usernameInput.value;
+//     const password = passwordInput.value;
 
-    console.log(`Username: ${username}, Password: ${password}`);
+//     console.log(`Username: ${username}, Password: ${password}`);
 
-    const isValid = validateInputs(username, password, teams);
-    console.log(`IsValid: ${isValid}`);
-    enterAdventureLink.style.pointerEvents = isValid ? 'auto' : 'none';
-    enterAdventureLink.style.opacity = isValid ? 1 : 0.5;
-}
+//     const isValid = validateInputs(username, password, teams);
+//     console.log(`IsValid: ${isValid}`);
+//     enterAdventureLink.style.pointerEvents = isValid ? 'auto' : 'none';
+//     enterAdventureLink.style.opacity = isValid ? 1 : 0.5;
+// }
 
-document.addEventListener('DOMContentLoaded', () => {
-    usernameInput.addEventListener('input', checkInputs);
-    passwordInput.addEventListener('input', checkInputs);
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     usernameInput.addEventListener('input', checkInputs);
+//     passwordInput.addEventListener('input', checkInputs);
+// });
 
 document.addEventListener('DOMContentLoaded', () => {
     const birdWater = document.getElementById('birdWater');
